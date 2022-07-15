@@ -1,0 +1,20 @@
+# We use R for finding outlier
+install.packages("alphaOutlier")
+install.packages("Rsolnp")
+install.packages("nleqslv")
+install.packages("quantreg")
+install.packages("graphics")
+library(alphaOutlier)
+install.packages("readr")
+library(readr)
+
+# Excluding outlier of student infections at significance of 0.01 
+dd=read_csv("____") # input student infection data
+a2<-aout.nbinom(dd[[1]], c(0.164549, 0.051955),0.01)
+write.csv(a2,"____") # output outlier data at significance of 0.01 
+
+# Excluding outlier of student infections at significance of 0.05 
+#dd=read_csv("____") # input student infection data
+#a3<-aout.nbinom(dd[[1]], c(0.164549, 0.051955),0.05)
+#write.csv(a3,"____") # output outlier data at significance of 0.05
+
